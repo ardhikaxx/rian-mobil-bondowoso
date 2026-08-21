@@ -23,7 +23,7 @@ export default function CTA() {
 
         <motion.h2 className="text-3xl lg:text-5xl font-black text-white mb-6 tracking-tight leading-tight" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
           Sudah Menemukan Mobil{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">yang Anda Cari?</span>
+          <span className="text-red-600">yang Anda Cari?</span>
         </motion.h2>
 
         <motion.p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>

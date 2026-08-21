@@ -46,7 +46,7 @@ export default function Advantages() {
           </div>
           <h2 className="text-3xl lg:text-5xl font-black text-white mb-4 tracking-tight">
             Mengapa Memilih{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+            <span className="text-red-600">
               Rian Mobil Bondowoso?
             </span>
           </h2>
@@ -66,9 +66,9 @@ export default function Advantages() {
           {advantages.map((advantage) => (
             <motion.div key={advantage.id} className="relative group" variants={item}>
               <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 hover:border-red-600/40 transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-red-600/10 hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 <div className="relative">
-                  <div className="w-14 h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg shadow-red-600/30 group-hover:shadow-red-600/50 transition-all duration-500 mb-6">
+                  <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transition-all duration-500 mb-6">
                     <Icon name={advantage.icon} size={24} className="text-white" />
                   </div>
                   <h3 className="text-xl font-black text-white mb-3 group-hover:text-red-400 transition-colors duration-300">

@@ -45,14 +45,7 @@ export default function Hero() {
     >
       {/* Background Pattern */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-red-950/30" />
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.2) 0%, transparent 40%)",
-          }}
-        />
+        <div className="absolute inset-0 bg-black" />
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -64,18 +57,8 @@ export default function Hero() {
       </div>
 
       {/* Decorative Elements */}
-      <motion.div
-        className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.35, 0.2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-red-600/5 rounded-full" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-red-600/5 rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gray-900 rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gray-900 rounded-full" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -90,7 +73,7 @@ export default function Hero() {
 
             <motion.h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight" variants={fadeUp} initial="hidden" animate="visible" custom={1}>
               Temukan Mobil Bekas{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600">
+              <span className="text-red-600">
                 Pilihan Anda
               </span>
             </motion.h1>
@@ -130,7 +113,7 @@ export default function Hero() {
             <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
               <div className="aspect-[4/3] flex items-center justify-center">
                 <div className="text-center space-y-4 p-8">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-600/20 to-red-800/20 rounded-3xl flex items-center justify-center border border-red-600/20">
+                  <div className="w-24 h-24 mx-auto bg-gray-900 rounded-3xl flex items-center justify-center border border-gray-800">
                     <Icon name="car" size={56} className="text-red-500/40" />
                   </div>
                   <p className="text-gray-500 text-sm font-medium">Placeholder untuk foto showroom kendaraan</p>
@@ -146,7 +129,7 @@ export default function Hero() {
               transition={{ delay: 1.2, duration: 0.7, ease: "easeOut" }}
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/30">
+                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/20">
                   <Icon name="check" size={20} className="text-white" />
                 </div>
                 <div>

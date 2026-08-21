@@ -15,17 +15,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        "bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 focus:ring-red-500 shadow-lg shadow-red-600/25 hover:shadow-red-600/40 hover:brightness-110",
+        "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-lg shadow-red-600/20 hover:shadow-red-600/40",
       secondary:
-        "bg-gradient-to-r from-gray-900 to-black text-white hover:from-gray-800 hover:to-gray-900 focus:ring-gray-500 shadow-lg",
+        "bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-500 shadow-lg",
       outline:
         "border-2 border-gray-300 text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 focus:ring-gray-400 bg-white",
       whatsapp:
-        "bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 focus:ring-green-400 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 hover:brightness-110",
+        "bg-green-600 text-white hover:bg-green-700 focus:ring-green-400 shadow-lg shadow-green-600/20 hover:shadow-green-600/40",
       ghost:
         "text-gray-600 hover:bg-gray-100 focus:ring-gray-400",
       danger:
-        "bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 focus:ring-red-400 shadow-lg shadow-red-500/25",
+        "bg-red-500 text-white hover:bg-red-600 focus:ring-red-400 shadow-lg shadow-red-500/20",
     };
 
     const sizes = {

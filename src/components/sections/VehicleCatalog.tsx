@@ -37,25 +37,25 @@ export default function VehicleCatalog() {
   }, [search, selectedCategory]);
 
   return (
-    <section id="mobil-tersedia" className="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section id="mobil-tersedia" className="py-16 lg:py-24 bg-gradient-to-b from-black to-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center max-w-2xl mx-auto mb-12" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
-          <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-bold mb-4">
+          <div className="inline-flex items-center gap-2 bg-red-600/20 text-red-400 border border-red-600/20 px-4 py-2 rounded-full text-sm font-bold mb-4">
             <Icon name="car" size={14} />
             <span>Inventory Kami</span>
           </div>
-          <h2 className="text-3xl lg:text-5xl font-black text-gray-900 mb-4 tracking-tight">Mobil Tersedia</h2>
-          <p className="text-gray-600 text-lg">Pilihan mobil bekas berkualitas untuk Anda. Semua kendaraan dalam kondisi terawat dan siap dikendarai.</p>
+          <h2 className="text-3xl lg:text-5xl font-black text-white mb-4 tracking-tight">Mobil Tersedia</h2>
+          <p className="text-gray-400 text-lg">Pilihan mobil bekas berkualitas untuk Anda. Semua kendaraan dalam kondisi terawat dan siap dikendarai.</p>
         </motion.div>
 
         <motion.div className="flex flex-col sm:flex-row gap-4 mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
           <div className="relative flex-1">
-            <Icon name="search" size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-            <input type="text" placeholder="Cari mobil berdasarkan nama atau brand..." value={search} onChange={(e) => setSearch(e.target.value)} className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all shadow-sm" />
+            <Icon name="search" size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+            <input type="text" placeholder="Cari mobil berdasarkan nama atau brand..." value={search} onChange={(e) => setSearch(e.target.value)} className="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all shadow-sm" />
           </div>
           <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
             {VEHICLE_CATEGORIES.map((category) => (
-              <motion.button key={category} onClick={() => setSelectedCategory(category)} className={`px-5 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${selectedCategory === category ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/30" : "bg-white text-gray-600 hover:bg-gray-100 border-2 border-gray-200 hover:border-gray-300"}`} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <motion.button key={category} onClick={() => setSelectedCategory(category)} className={`px-5 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${selectedCategory === category ? "bg-red-600 text-white shadow-lg shadow-red-600/20" : "bg-gray-900 text-gray-400 hover:bg-gray-800 border-2 border-gray-800 hover:border-gray-700 hover:text-white"}`} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 {category}
               </motion.button>
             ))}
@@ -76,12 +76,12 @@ export default function VehicleCatalog() {
               ))}
             </motion.div>
           ) : (
-            <motion.div key="empty" className="text-center py-20 bg-white rounded-3xl border border-gray-100" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.3 }}>
-              <div className="w-20 h-20 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Icon name="car" size={40} className="text-red-300" />
+            <motion.div key="empty" className="text-center py-20 bg-gray-900 rounded-3xl border border-gray-800" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.3 }}>
+              <div className="w-20 h-20 bg-red-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-red-600/20">
+                <Icon name="car" size={40} className="text-red-500/50" />
               </div>
-              <h3 className="text-xl font-bold text-gray-700 mb-2">Tidak ada mobil yang ditemukan</h3>
-              <p className="text-gray-500 text-sm">Coba ubah filter atau kata kunci pencarian Anda.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Tidak ada mobil yang ditemukan</h3>
+              <p className="text-gray-400 text-sm">Coba ubah filter atau kata kunci pencarian Anda.</p>
             </motion.div>
           )}
         </AnimatePresence>
