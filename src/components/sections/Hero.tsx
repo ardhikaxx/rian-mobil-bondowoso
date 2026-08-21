@@ -1,32 +1,34 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import { SITE_CONFIG } from "@/data/constants";
 import { generateWhatsAppLink } from "@/lib/utils";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.7,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+    },
+  }),
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+  },
+};
+
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   const scrollToVehicles = () => {
     const element = document.querySelector("#mobil-tersedia");
     if (element) {
@@ -36,7 +38,6 @@ export default function Hero() {
 
   return (
     <section
-      ref={sectionRef}
       id="beranda"
       className="relative min-h-screen flex items-center bg-black overflow-hidden"
     >
@@ -61,8 +62,22 @@ export default function Hero() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-600/5 rounded-full blur-3xl" />
+      <motion.div
+        className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-10 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-red-600/5 rounded-full" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-red-600/5 rounded-full" />
 
@@ -70,27 +85,50 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
-            <div className="space-y-4">
+            <motion.div
+              className="space-y-4"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0}
+            >
               <div className="inline-flex items-center gap-2 bg-red-600/20 text-red-400 px-5 py-2.5 rounded-full text-sm font-bold backdrop-blur-sm border border-red-500/20">
                 <Icon name="location" size={14} />
                 <span>{SITE_CONFIG.location.full}</span>
               </div>
-            </div>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight">
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={1}
+            >
               Temukan Mobil Bekas{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600">
                 Pilihan Anda
-              </span>{" "}
-              di Rian Mobil Bondowoso
-            </h1>
+              </span>
+            </motion.h1>
 
-            <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
+            <motion.p
+              className="text-lg text-gray-400 leading-relaxed max-w-xl"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={2}
+            >
               {SITE_CONFIG.description}. Lihat pilihan kendaraan kami dan hubungi
               tim melalui WhatsApp untuk informasi unit dan harga terbaik.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={3}
+            >
               <Button
                 variant="primary"
                 size="lg"
@@ -110,9 +148,15 @@ export default function Hero() {
                   Chat WhatsApp
                 </Button>
               </a>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4">
+            <motion.div
+              className="flex flex-wrap items-center gap-6 pt-4"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={4}
+            >
               <div className="flex items-center gap-2 text-sm text-gray-400">
                 <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center">
                   <Icon name="check" size={12} className="text-red-400" />
@@ -131,20 +175,25 @@ export default function Hero() {
                 </div>
                 <span>Lokasi Strategis</span>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Visual */}
-          <div className="relative hidden lg:block">
-            <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
+          <motion.div
+            className="relative hidden lg:block"
+            variants={scaleIn}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div
+              className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="aspect-[4/3] flex items-center justify-center">
                 <div className="text-center space-y-4 p-8">
                   <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-600/20 to-red-800/20 rounded-3xl flex items-center justify-center border border-red-600/20">
-                    <Icon
-                      name="car"
-                      size={56}
-                      className="text-red-500/40"
-                    />
+                    <Icon name="car" size={56} className="text-red-500/40" />
                   </div>
                   <p className="text-gray-500 text-sm font-medium">
                     Placeholder untuk foto showroom kendaraan
@@ -154,10 +203,15 @@ export default function Hero() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Floating Stats */}
-            <div className="absolute -bottom-8 -left-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 shadow-2xl border border-gray-800">
+            <motion.div
+              className="absolute -bottom-8 -left-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 shadow-2xl border border-gray-800"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/30">
                   <Icon name="check" size={20} className="text-white" />
@@ -167,17 +221,26 @@ export default function Hero() {
                   <p className="font-black text-white">Beragam Pilihan</p>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 border-2 border-gray-600 rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-red-500 rounded-full animate-pulse" />
-        </div>
-      </div>
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+      >
+        <motion.div
+          className="w-8 h-12 border-2 border-gray-600 rounded-full flex justify-center pt-2"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="w-1.5 h-3 bg-red-500 rounded-full" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
