@@ -113,7 +113,7 @@ export default function Hero() {
             <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
               <div className="aspect-[4/3] flex items-center justify-center relative">
                 <Image
-                  src="/images/hero-bg.jpg"
+                  src="/images/hero-bg-v2.jpg"
                   alt="Showroom Rian Mobil Bondowoso"
                   fill
                   className="object-cover"
