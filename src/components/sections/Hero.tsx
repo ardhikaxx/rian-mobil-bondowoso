@@ -43,25 +43,22 @@ export default function Hero() {
       id="beranda"
       className="relative min-h-screen flex items-center bg-black overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-black" />
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+      {/* Background Image & Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-bg-v2.jpg"
+          alt="Showroom Rian Mobil Bondowoso"
+          fill
+          className="object-cover"
+          priority
         />
+        <div className="absolute inset-0 bg-black/60 lg:bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gray-900 rounded-full" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gray-900 rounded-full" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
+        <div className="max-w-3xl">
           {/* Content */}
           <div className="space-y-8">
             <motion.div className="space-y-4" variants={fadeUp} initial="hidden" animate="visible" custom={0}>
@@ -73,12 +70,12 @@ export default function Hero() {
 
             <motion.h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight" variants={fadeUp} initial="hidden" animate="visible" custom={1}>
               Temukan Mobil Bekas{" "}
-              <span className="text-red-600">
+              <span className="text-red-500 drop-shadow-md">
                 Pilihan Anda
               </span>
             </motion.h1>
 
-            <motion.p className="text-lg text-gray-400 leading-relaxed max-w-xl" variants={fadeUp} initial="hidden" animate="visible" custom={2}>
+            <motion.p className="text-lg text-gray-300 leading-relaxed max-w-xl font-medium drop-shadow-md" variants={fadeUp} initial="hidden" animate="visible" custom={2}>
               {SITE_CONFIG.description}. Lihat pilihan kendaraan kami dan hubungi
               tim melalui WhatsApp untuk informasi unit dan harga terbaik.
             </motion.p>
@@ -98,47 +95,15 @@ export default function Hero() {
 
             <motion.div className="flex flex-wrap items-center gap-6 pt-4" variants={fadeUp} initial="hidden" animate="visible" custom={4}>
               {["Informasi Transparan", "Respon Cepat", "Lokasi Strategis"].map((text) => (
-                <div key={text} className="flex items-center gap-2 text-sm text-red-600">
-                  <div className="w-6 h-6 bg-red-600/10 rounded-full flex items-center justify-center border border-red-600/30">
-                    <Icon name="check" size={12} className="text-red-600" />
+                <div key={text} className="flex items-center gap-2 text-sm text-red-400 drop-shadow-md">
+                  <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center border border-red-600/30 backdrop-blur-sm">
+                    <Icon name="check" size={12} className="text-red-500" />
                   </div>
-                  <span className="font-bold">{text}</span>
+                  <span className="font-bold tracking-wide">{text}</span>
                 </div>
               ))}
             </motion.div>
           </div>
-
-          {/* Visual */}
-          <motion.div className="relative hidden lg:block" variants={scaleIn} initial="hidden" animate="visible">
-            <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
-              <div className="aspect-[4/3] flex items-center justify-center relative">
-                <Image
-                  src="/images/hero-bg-v2.jpg"
-                  alt="Showroom Rian Mobil Bondowoso"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-
-            <motion.div
-              className="absolute -bottom-8 -left-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 shadow-2xl border border-gray-800"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.7, ease: "easeOut" }}
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/20">
-                  <Icon name="check" size={20} className="text-white" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 font-medium">Unit Tersedia</p>
-                  <p className="font-black text-white">Beragam Pilihan</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
 
