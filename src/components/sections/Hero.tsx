@@ -1,10 +1,10 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import { SITE_CONFIG } from "@/data/constants";
 import { generateWhatsAppLink } from "@/lib/utils";
+import Image from "next/image";
 
 import type { Variants, Transition } from "framer-motion";
 
@@ -111,14 +111,14 @@ export default function Hero() {
           {/* Visual */}
           <motion.div className="relative hidden lg:block" variants={scaleIn} initial="hidden" animate="visible">
             <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
-              <div className="aspect-[4/3] flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <div className="w-24 h-24 mx-auto bg-gray-900 rounded-3xl flex items-center justify-center border border-gray-800">
-                    <Icon name="car" size={56} className="text-red-500/40" />
-                  </div>
-                  <p className="text-gray-500 text-sm font-medium">Placeholder untuk foto showroom kendaraan</p>
-                  <p className="text-gray-600 text-xs">Ganti dengan foto asli dari Rian Mobil Bondowoso</p>
-                </div>
+              <div className="aspect-[4/3] flex items-center justify-center relative">
+                <Image
+                  src="/images/hero-bg.jpg"
+                  alt="Showroom Rian Mobil Bondowoso"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
 

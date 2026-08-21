@@ -7,6 +7,7 @@ import Badge from "./Badge";
 import Icon from "./Icon";
 import Button from "./Button";
 import { generateWhatsAppLink } from "@/lib/utils";
+import Image from "next/image";
 
 interface VehicleCardProps {
   vehicle: Vehicle;
@@ -30,8 +31,12 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
     >
       <Link href={`/mobil/${vehicle.slug}`} className="block">
         <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
-          <div className="w-full h-full flex items-center justify-center text-gray-700 group-hover:scale-105 transition-transform duration-[600ms] ease-out">
-            <Icon name="car" size={72} className="opacity-20" />
+          <div className="w-full h-full flex items-center justify-center text-gray-700 group-hover:scale-105 transition-transform duration-[600ms] ease-out relative">
+            {vehicle.thumbnail ? (
+              <Image src={vehicle.thumbnail} alt={vehicle.name} fill className="object-cover" />
+            ) : (
+              <Icon name="car" size={72} className="opacity-20" />
+            )}
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] ease-out" />
           <div className="absolute top-3 left-3">
