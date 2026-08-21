@@ -123,18 +123,7 @@ export default function Navbar() {
       >
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-5 border-b border-gray-800">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/20">
-                <Icon name="car" size={18} className="text-white" />
-              </div>
-              <div>
-                <span className="font-black text-white text-sm">Rian Mobil</span>
-                <p className="text-[9px] text-red-400 font-bold tracking-widest uppercase">
-                  Bondowoso
-                </p>
-              </div>
-            </div>
+          <div className="flex items-center justify-end p-5 border-b border-gray-800">
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
