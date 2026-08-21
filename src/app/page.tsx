@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import Hero from "@/components/sections/Hero";
+import TiktokShowcase from "@/components/sections/TiktokShowcase";
 import VehicleCatalog from "@/components/sections/VehicleCatalog";
 import Advantages from "@/components/sections/Advantages";
 import About from "@/components/sections/About";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <TiktokShowcase />
         <VehicleCatalog />
         <Advantages />
         <About />
