@@ -57,7 +57,7 @@ export default function Navbar() {
               <div className="relative w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transition-all">
                 <Image src="/images/logo.jpeg" alt="Logo Rian Mobil Bondowoso" fill className="object-cover" />
               </div>
-              <div className="hidden sm:block">
+              <div className="flex flex-col justify-center">
                 <p className="font-black text-white text-sm lg:text-base leading-tight tracking-tight">
                   Rian Mobil
                 </p>
