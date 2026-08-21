@@ -98,11 +98,11 @@ export default function Hero() {
 
             <motion.div className="flex flex-wrap items-center gap-6 pt-4" variants={fadeUp} initial="hidden" animate="visible" custom={4}>
               {["Informasi Transparan", "Respon Cepat", "Lokasi Strategis"].map((text) => (
-                <div key={text} className="flex items-center gap-2 text-sm text-gray-300">
-                  <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center border border-red-600/30">
+                <div key={text} className="flex items-center gap-2 text-sm text-red-600">
+                  <div className="w-6 h-6 bg-red-600/10 rounded-full flex items-center justify-center border border-red-600/30">
                     <Icon name="check" size={12} className="text-red-600" />
                   </div>
-                  <span className="font-medium">{text}</span>
+                  <span className="font-bold">{text}</span>
                 </div>
               ))}
             </motion.div>
