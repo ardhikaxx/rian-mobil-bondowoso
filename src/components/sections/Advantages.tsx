@@ -71,7 +71,7 @@ export default function Advantages() {
                   <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transition-all duration-500 mb-6">
                     <Icon name={advantage.icon} size={24} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-3 group-hover:text-red-400 transition-colors duration-300">
+                  <h3 className="text-xl font-black text-white mb-3 group-hover:text-red-600 transition-colors duration-300">
                     {advantage.title}
                   </h3>
                   <p className="text-sm text-gray-400 leading-relaxed">

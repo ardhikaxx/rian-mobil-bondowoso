@@ -55,7 +55,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
 
       <div className="p-5">
         <Link href={`/mobil/${vehicle.slug}`} className="block">
-          <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300 ease-out line-clamp-1">
+          <h3 className="text-lg font-bold text-white group-hover:text-red-600 transition-colors duration-300 ease-out line-clamp-1">
             {vehicle.name}
           </h3>
           <p className="text-2xl font-black text-red-500 mt-2 tracking-tight">
