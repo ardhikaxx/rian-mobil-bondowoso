@@ -70,14 +70,14 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
-            <div className="space-y-4 animate-on-scroll opacity-0 translate-y-8">
+            <div className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-red-600/20 text-red-400 px-5 py-2.5 rounded-full text-sm font-bold backdrop-blur-sm border border-red-500/20">
                 <Icon name="location" size={14} />
                 <span>{SITE_CONFIG.location.full}</span>
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight animate-on-scroll opacity-0 translate-y-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight">
               Temukan Mobil Bekas{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600">
                 Pilihan Anda
@@ -85,12 +85,12 @@ export default function Hero() {
               di Rian Mobil Bondowoso
             </h1>
 
-            <p className="text-lg text-gray-400 leading-relaxed max-w-xl animate-on-scroll opacity-0 translate-y-8">
+            <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
               {SITE_CONFIG.description}. Lihat pilihan kendaraan kami dan hubungi
               tim melalui WhatsApp untuk informasi unit dan harga terbaik.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-on-scroll opacity-0 translate-y-8">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 variant="primary"
                 size="lg"
@@ -112,7 +112,7 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4 animate-on-scroll opacity-0 translate-y-8">
+            <div className="flex flex-wrap items-center gap-6 pt-4">
               <div className="flex items-center gap-2 text-sm text-gray-400">
                 <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center">
                   <Icon name="check" size={12} className="text-red-400" />
@@ -135,8 +135,8 @@ export default function Hero() {
           </div>
 
           {/* Visual */}
-          <div className="relative animate-on-scroll opacity-0 translate-y-8 hidden lg:block">
-            <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800 animate-pulse-glow">
+          <div className="relative hidden lg:block">
+            <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
               <div className="aspect-[4/3] flex items-center justify-center">
                 <div className="text-center space-y-4 p-8">
                   <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-600/20 to-red-800/20 rounded-3xl flex items-center justify-center border border-red-600/20">
