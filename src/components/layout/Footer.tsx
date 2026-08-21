@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAVIGATION, SITE_CONFIG } from "@/data/constants";
+import Image from "next/image";
 import Icon from "@/components/ui/Icon";
 
 export default function Footer() {
@@ -12,8 +13,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/20">
-                <Icon name="car" size={20} className="text-white" />
+              <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-lg shadow-red-600/20">
+                <Image src="/images/logo.jpeg" alt="Logo Rian Mobil Bondowoso" fill className="object-cover" />
               </div>
               <div>
                 <p className="font-black text-white text-sm leading-tight">

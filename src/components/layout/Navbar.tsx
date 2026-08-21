@@ -6,6 +6,7 @@ import { NAVIGATION, SITE_CONFIG } from "@/data/constants";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import { generateWhatsAppLink } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,8 +54,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 shrink-0">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transition-all">
-                <Icon name="car" size={22} className="text-white" />
+              <div className="relative w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transition-all">
+                <Image src="/images/logo.jpeg" alt="Logo Rian Mobil Bondowoso" fill className="object-cover" />
               </div>
               <div className="hidden sm:block">
                 <p className="font-black text-white text-sm lg:text-base leading-tight tracking-tight">
