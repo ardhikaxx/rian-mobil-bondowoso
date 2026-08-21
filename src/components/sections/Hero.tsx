@@ -6,27 +6,29 @@ import Icon from "@/components/ui/Icon";
 import { SITE_CONFIG } from "@/data/constants";
 import { generateWhatsAppLink } from "@/lib/utils";
 
+import type { Variants, Transition } from "framer-motion";
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.15,
-      duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+      delay: i * 0.12,
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
     },
   }),
-};
+} satisfies Variants;
 
 const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.95 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+    transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
-};
+} satisfies Variants;
 
 export default function Hero() {
   const scrollToVehicles = () => {
@@ -64,18 +66,12 @@ export default function Hero() {
       {/* Decorative Elements */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute bottom-20 right-10 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.35, 0.2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-red-600/5 rounded-full" />
@@ -85,64 +81,31 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
-            <motion.div
-              className="space-y-4"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={0}
-            >
+            <motion.div className="space-y-4" variants={fadeUp} initial="hidden" animate="visible" custom={0}>
               <div className="inline-flex items-center gap-2 bg-red-600/20 text-red-400 px-5 py-2.5 rounded-full text-sm font-bold backdrop-blur-sm border border-red-500/20">
                 <Icon name="location" size={14} />
                 <span>{SITE_CONFIG.location.full}</span>
               </div>
             </motion.div>
 
-            <motion.h1
-              className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-            >
+            <motion.h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight" variants={fadeUp} initial="hidden" animate="visible" custom={1}>
               Temukan Mobil Bekas{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600">
                 Pilihan Anda
               </span>
             </motion.h1>
 
-            <motion.p
-              className="text-lg text-gray-400 leading-relaxed max-w-xl"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={2}
-            >
+            <motion.p className="text-lg text-gray-400 leading-relaxed max-w-xl" variants={fadeUp} initial="hidden" animate="visible" custom={2}>
               {SITE_CONFIG.description}. Lihat pilihan kendaraan kami dan hubungi
               tim melalui WhatsApp untuk informasi unit dan harga terbaik.
             </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={3}
-            >
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={scrollToVehicles}
-                className="sm:w-auto"
-              >
+            <motion.div className="flex flex-col sm:flex-row gap-4" variants={fadeUp} initial="hidden" animate="visible" custom={3}>
+              <Button variant="primary" size="lg" onClick={scrollToVehicles} className="sm:w-auto">
                 <Icon name="car" size={20} />
                 Lihat Mobil Tersedia
               </Button>
-              <a
-                href={generateWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                 <Button variant="whatsapp" size="lg">
                   <Icon name="whatsapp" size={20} />
                   Chat WhatsApp
@@ -150,67 +113,37 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            <motion.div
-              className="flex flex-wrap items-center gap-6 pt-4"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={4}
-            >
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center">
-                  <Icon name="check" size={12} className="text-red-400" />
+            <motion.div className="flex flex-wrap items-center gap-6 pt-4" variants={fadeUp} initial="hidden" animate="visible" custom={4}>
+              {["Informasi Transparan", "Respon Cepat", "Lokasi Strategis"].map((text) => (
+                <div key={text} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center">
+                    <Icon name="check" size={12} className="text-red-400" />
+                  </div>
+                  <span>{text}</span>
                 </div>
-                <span>Informasi Transparan</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center">
-                  <Icon name="check" size={12} className="text-red-400" />
-                </div>
-                <span>Respon Cepat</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <div className="w-6 h-6 bg-red-600/20 rounded-full flex items-center justify-center">
-                  <Icon name="check" size={12} className="text-red-400" />
-                </div>
-                <span>Lokasi Strategis</span>
-              </div>
+              ))}
             </motion.div>
           </div>
 
           {/* Visual */}
-          <motion.div
-            className="relative hidden lg:block"
-            variants={scaleIn}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div
-              className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
+          <motion.div className="relative hidden lg:block" variants={scaleIn} initial="hidden" animate="visible">
+            <div className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
               <div className="aspect-[4/3] flex items-center justify-center">
                 <div className="text-center space-y-4 p-8">
                   <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-600/20 to-red-800/20 rounded-3xl flex items-center justify-center border border-red-600/20">
                     <Icon name="car" size={56} className="text-red-500/40" />
                   </div>
-                  <p className="text-gray-500 text-sm font-medium">
-                    Placeholder untuk foto showroom kendaraan
-                  </p>
-                  <p className="text-gray-600 text-xs">
-                    Ganti dengan foto asli dari Rian Mobil Bondowoso
-                  </p>
+                  <p className="text-gray-500 text-sm font-medium">Placeholder untuk foto showroom kendaraan</p>
+                  <p className="text-gray-600 text-xs">Ganti dengan foto asli dari Rian Mobil Bondowoso</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Floating Stats */}
             <motion.div
               className="absolute -bottom-8 -left-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 shadow-2xl border border-gray-800"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
+              transition={{ delay: 1.2, duration: 0.7, ease: "easeOut" }}
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/30">
@@ -231,12 +164,12 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
+        transition={{ delay: 2.5, duration: 0.8 }}
       >
         <motion.div
           className="w-8 h-12 border-2 border-gray-600 rounded-full flex justify-center pt-2"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         >
           <div className="w-1.5 h-3 bg-red-500 rounded-full" />
         </motion.div>

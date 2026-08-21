@@ -22,20 +22,20 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const whatsappLink = generateWhatsAppLink(vehicle.name);
 
   return (
-    <article className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-red-200 hover:-translate-y-2">
+    <article className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-[400ms] ease-out border border-gray-100 hover:border-red-200/60 hover:-translate-y-1">
       <Link href={`/mobil/${vehicle.slug}`} className="block">
         <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-          <div className="w-full h-full flex items-center justify-center text-gray-400 group-hover:scale-110 transition-transform duration-700">
+          <div className="w-full h-full flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-[600ms] ease-out">
             <Icon name="car" size={72} className="opacity-20" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] ease-out" />
           <div className="absolute top-3 left-3">
             <Badge variant={statusVariant}>{vehicle.status}</Badge>
           </div>
           <div className="absolute top-3 right-3">
             <Badge variant="info">{vehicle.category}</Badge>
           </div>
-          <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-[400ms] ease-out translate-y-2 group-hover:translate-y-0">
             <div className="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
               <p className="text-lg font-black text-gray-900">{vehicle.priceFormatted}</p>
             </div>
@@ -45,7 +45,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
 
       <div className="p-5">
         <Link href={`/mobil/${vehicle.slug}`} className="block">
-          <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-1">
+          <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-300 ease-out line-clamp-1">
             {vehicle.name}
           </h3>
           <p className="text-2xl font-black text-red-600 mt-2 tracking-tight">

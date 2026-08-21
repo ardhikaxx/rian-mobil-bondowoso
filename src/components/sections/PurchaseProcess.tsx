@@ -35,7 +35,7 @@ export default function PurchaseProcess() {
         </motion.div>
 
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative" variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
-          <div className="hidden lg:block absolute top-24 left-[calc(12.5%+32px)] right-[calc(12.5%+32px)] h-0.5 bg-gradient-to-r from-gray-200 via-red-200 to-gray-200" />
+          <div className="hidden lg:block absolute top-8 left-[calc(12.5%+2rem)] right-[calc(12.5%+2rem)] h-0.5 bg-gradient-to-r from-gray-200 via-red-200 to-gray-200" />
 
           {purchaseSteps.map((step) => (
             <motion.div key={step.id} className="relative" variants={item}>
