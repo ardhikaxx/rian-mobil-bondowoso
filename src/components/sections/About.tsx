@@ -72,15 +72,15 @@ export default function About() {
 
           <motion.div className="relative" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
-              <div className="aspect-[4/3] w-full h-full flex">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-900">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126480.68349125722!2d113.92297742378864!3d-7.840372428214327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6d12b346c5e21%3A0xdaf8b06cbc0dbecb!2sKec.%20Prajekan%2C%20Kabupaten%20Bondowoso%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1787353645748!5m2!1sid!2sid" 
-                  className="w-full h-full opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 w-full h-full opacity-80 hover:opacity-100 transition-opacity duration-300"
                   style={{ border: 0 }} 
                   allowFullScreen={false} 
                   loading="lazy" 
                   referrerPolicy="strict-origin-when-cross-origin"
-                ></iframe>
+                />
               </div>
             </div>
 
